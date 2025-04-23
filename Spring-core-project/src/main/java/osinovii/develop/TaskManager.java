@@ -1,16 +1,28 @@
 package osinovii.develop;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TaskManeger {
+@Scope("prototype")
+public class TaskManager {
     private final Task task;
 
-    public TaskManeger(Task task) {
+    public TaskManager(Task task) {
         this.task = task;
     }
 
+    @PostConstruct
+    public void postConstruct(){
+        System.out.println("task manager post construct");
+    }
+
+    @PreDestroy
+    public void preDestroy(){
+        System.out.println("task manager  pre destroy");
+    }
     public Task getTask() {
         return task;
     }
