@@ -2,8 +2,6 @@ package osinovii.develop;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import javax.lang.model.element.AnnotationValue;
-
 public class Main {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context =
@@ -13,6 +11,7 @@ public class Main {
         System.out.println(task1 == task2);
         TaskManeger taskManeger = context.getBean(TaskManeger.class);
         taskManeger.printTask();
-
+        TaskExecuter taskExecuter = context.getBean(TaskExecuter.class);
+        taskExecuter.executeTask();
     }
 }
