@@ -2,18 +2,21 @@ package osinovii.develop;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-//@Scope("prototype")
 public class Task {
     private final String name;
     private final Long duration;
 
-    public Task() {
-        this.name = "task";
-        this.duration = 30L;
+    public Task(
+            @Value("value-task") String name,
+            @Value("120") Long duration
+    ) {
+        this.name = name ;
+        this.duration = duration;
         System.out.println("call task constructor");
     }
 
