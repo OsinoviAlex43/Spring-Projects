@@ -12,8 +12,8 @@ public class Task {
     private final Long duration;
 
     public Task(
-            @Value("value-task") String name,
-            @Value("120") Long duration
+            @Value("${task.name}") String name,
+            @Value("${task.duration}") Long duration
     ) {
         this.name = name ;
         this.duration = duration;
